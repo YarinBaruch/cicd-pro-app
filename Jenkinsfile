@@ -6,7 +6,7 @@ pipeline {
   }
 
     environment {
-      registry = "yarinb9/vprofileapp:V4"
+      registry = "yarinb9/vprofileapp"
       registryCredential = "dockerhub"
        
     }
@@ -83,7 +83,7 @@ pipeline {
                 docker.withRegistry('',registryCredential) {
                 dockerImage.push("$BUILD_NUMBER")
                 dockerImage.push("latest")
-                }
+              }
             }
             
           }
