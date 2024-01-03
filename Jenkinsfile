@@ -7,7 +7,7 @@ pipeline {
 
     environment {
       registry = "yarinb9/vprofileapp:V4"
-      registryCredentials = "dockerhub"
+      registryCredential = "dockerhub"
        
     }
 
@@ -80,7 +80,7 @@ pipeline {
         stage('Upload Image') {
           steps {
             script {
-                docker.withRegistry('', registryCredentials) {
+                docker.withRegistry('',registryCredential) {
                 dockerImage.push("$BUILD_NUMBER")
                 dockerImage.push("latest")
                 }
